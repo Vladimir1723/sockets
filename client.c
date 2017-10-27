@@ -12,7 +12,7 @@ int main(int argc, char **argv)	{
 	sock_addr.sin_port = htons(12345);
 	sock_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
 
-   	connect(slave_socket, (struct sockaddr*)&sock_addr, sizeof(sock_addr));
+   	connect(slave_socket, (struct sockaddr*)(&sock_addr), sizeof(sock_addr));
 
 	char *send_buffer = "PING";
 	send(slave_socket, send_buffer, strlen(send_buffer), MSG_NOSIGNAL);

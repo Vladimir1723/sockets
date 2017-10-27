@@ -5,9 +5,8 @@
 #include <netinet/in.h>
 
 int main(int argc, char **argv)	{
-	int master_socket = socket(
-							   PF_INET, /* IPv4*/
-							   SOCK_STREAM, /* TCP */
+	int master_socket = socket(PF_INET, 
+							   SOCK_STREAM, 
 							   IPPROTO_TCP);
 
 	struct sockaddr_in sock_addr;
@@ -15,7 +14,7 @@ int main(int argc, char **argv)	{
 	sock_addr.sin_port = htons(12345);
 	sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-	bind(master_socket, (struct sockaddr*)&sock_addr,
+	bind(master_socket, (struct sockaddr*)(&sock_addr),
 		 sizeof(sock_addr));
 
 	listen(master_socket, SOMAXCONN);
@@ -37,6 +36,3 @@ int main(int argc, char **argv)	{
 	
 	return 0;
 }
-# sockets
-# sockets
-# sockets
